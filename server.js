@@ -20,7 +20,7 @@ io.on('connection', function (socket){
   var sHeaders = socket.handshake.headers['x-forwarded-for'];
   var requestIpLookup = 'http://ipinfo.io/' + sHeaders;
   request(requestIpLookup, function(error, res, body) {
-    console.log(body.city);
+    console.log(body);
     if (allcities[body.city] === undefined){
       allcities[body.city] = 1;
     } else {
