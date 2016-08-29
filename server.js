@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 
 io.on('connection', function (socket){
   // // need to play around w/ this might have the IP :)
-  var sHeaders = socket.handshake;
+  var sHeaders = socket.handshake['x-forwarded-for'];
   console.info(sHeaders);
   // could try this too:
   var fooBoo = socket.request.connection.remoteAddress;
