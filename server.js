@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
+const request = require('request');
 
 const port = process.env.PORT || '8080';
 
@@ -12,10 +13,15 @@ app.get('/', function (req, res) {
   res.sendfile('socketio.html');
 });
 
+var requestIpLookup = 'http://ipinfo.io/'
 io.on('connection', function (socket){
   // // need to play around w/ this might have the IP :)
-  var sHeaders = socket.handshake.headers['x-forwarded-for'];
-  console.info('user connected: ', sHeaders);
+  let sHeaders = socket.handshake.headers['x-forwarded-for'];
+  let requestIpLookup = 'http://ipinfo.io/' + sHeaders;
+  request(requestIpLookup, function(error, res, body) {
+    console.log(body);
+  });
+  // console.info('user connected: ', sHeaders);
   // could try this too:
   // var fooBoo = socket.request.connection.remoteAddress;
   // var fooBoo = socket.request.connection._peername.address;

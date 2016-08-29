@@ -4,10 +4,11 @@ var height = +svg.attr('height');
 var axesX = d3.scale.linear().domain([0,100]).range([10,width-10]);
 var axesY = d3.scale.linear().domain([0,100]).range([10,height-10]);
 
-var randomPostion = function(h, r) {
+var randomPostion = function(hi, wh, r) { // hight with r of circle
   var enemies = [];
-  for (var i = 10 ; i < h; i += 20) {
-    for (var x = 10; x < r; x += 20){
+  enemies.rrr = r;
+  for (var i = 10 ; i < hi; i += (r * 2)) {
+    for (var x = 10; x < wh; x += (r * 2)){
       enemies.push([i, x]);
       }
     }
@@ -23,6 +24,7 @@ var update = function(data) {
      d3.select('svg').selectAll('circle')
                    .data(data)
                    .enter().append('circle')
+                   .attr('r', data.rrr)
                    .attr('cx', function(d) {return d[0]})
                    .attr('cy', function(d) {return d[1]})
                    .on('mouseover', function() {
@@ -47,4 +49,4 @@ var clear = function(data){
 // clear([]);
 // update(randomPostion(400, 100));
 // clear([]);
-update(randomPostion(500, 100)); // should be sive of svg with, hight
+update(randomPostion(500, 100, 10)); // should be sive of svg with, hight, r of circles

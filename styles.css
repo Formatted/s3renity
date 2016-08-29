@@ -1,4 +1,5 @@
 body {
+    /*background-color: white;*/
     background-color: #000000;
 }
 
@@ -30,7 +31,7 @@ body {
 }
 
 circle{
-  r: 10px;
+  /*r: 10px;*/
   /*fill: white;*/
 }
 
