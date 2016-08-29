@@ -16,8 +16,8 @@ app.get('/', function (req, res) {
 var requestIpLookup = 'http://ipinfo.io/'
 io.on('connection', function (socket){
   // // need to play around w/ this might have the IP :)
-  let sHeaders = socket.handshake.headers['x-forwarded-for'];
-  let requestIpLookup = 'http://ipinfo.io/' + sHeaders;
+  var sHeaders = socket.handshake.headers['x-forwarded-for'];
+  var requestIpLookup = 'http://ipinfo.io/' + sHeaders;
   request(requestIpLookup, function(error, res, body) {
     console.log(body);
   });
