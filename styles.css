@@ -1,0 +1,56 @@
+body {
+    background-color: #000000;
+}
+
+#board {
+  border: solid white 13px;
+  width: 500px;
+  height: 312px;
+  background-image: url('lb28.gif');
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#switch{
+  padding: 13px;
+  display: block;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  /*margin: dotted blue 2px;*/
+}
+
+#msg{
+  width: 500px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  /*border: dotted red 1px;*/
+}
+
+circle{
+  r: 10px;
+  /*fill: white;*/
+}
+
+/**{
+    border: dotted red 1px;
+}*/
+
+@keyframes typing { from { width: 0; } }
+@keyframes caret { 50% { border-color: transparent; } }
+
+.typeBox {
+  width: 11em; /* fallback, # of chars × 0.55 */
+  width: 20ch; /* # of characters */
+  border-right: .1em solid;
+  color: white;
+  white-space: nowrap;
+  font-family: "Courier";
+  font-size: 20px;
+  overflow: hidden;
+  overflow: hidden;
+  animation: typing 12s steps(20, end),
+             caret .5s step-end infinite alternate;
+}
