@@ -6,6 +6,7 @@ const request = require('request');
 
 const port = process.env.PORT || '8080';
 
+var allcities = {};
 
 app.use(express.static(__dirname + '/'));
 
@@ -15,11 +16,16 @@ app.get('/', function (req, res) {
 
 var requestIpLookup = 'http://ipinfo.io/'
 io.on('connection', function (socket){
-  // // need to play around w/ this might have the IP :)
+
   var sHeaders = socket.handshake.headers['x-forwarded-for'];
   var requestIpLookup = 'http://ipinfo.io/' + sHeaders;
   request(requestIpLookup, function(error, res, body) {
-    console.log(body);
+    if (allcities[body.city] === undefined){
+      allcities[body.city] = 1;
+    } else {
+      allcities[body.city]++;
+    }
+    console.log(JSON.stringify(allcities));
   });
   // console.info('user connected: ', sHeaders);
   // could try this too:
