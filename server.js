@@ -21,10 +21,11 @@ io.on('connection', function (socket){
   var requestIpLookup = 'http://ipinfo.io/' + sHeaders;
   request(requestIpLookup, function(error, res, body) {
     console.log(typeof body);
-    if (allcities[body.city] === undefined){
-      allcities[body.city] = 1;
+    var bodyR = JSON.parse(body)
+    if (allcities[bodyR.city] === undefined){
+      allcities[bodyR.city] = 1;
     } else {
-      allcities[body.city]++;
+      allcities[bodyR.city]++;
     }
     console.log(JSON.stringify(allcities));
   });
