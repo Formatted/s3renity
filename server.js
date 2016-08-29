@@ -8,6 +8,11 @@ const port = process.env.PORT || '8080';
 
 var allcities = {};
 
+//add some data for practice
+allcities.Denver = 1;
+allcities.Brandermill = 1;
+allcities.Aurora = 1;
+
 app.use(express.static(__dirname + '/'));
 
 app.get('/', function (req, res) {
@@ -17,23 +22,20 @@ app.get('/', function (req, res) {
 var requestIpLookup = 'http://ipinfo.io/'
 io.on('connection', function (socket){
 
-  var sHeaders = socket.handshake.headers['x-forwarded-for'];
-  var requestIpLookup = 'http://ipinfo.io/' + sHeaders;
-  request(requestIpLookup, function(error, res, body) {
-    console.log(typeof body);
-    var bodyR = JSON.parse(body)
-    if (allcities[bodyR.city] === undefined){
-      allcities[bodyR.city] = 1;
-    } else {
-      allcities[bodyR.city]++;
-    }
-    console.log(JSON.stringify(allcities));
-  });
-  // console.info('user connected: ', sHeaders);
-  // could try this too:
-  // var fooBoo = socket.request.connection.remoteAddress;
-  // var fooBoo = socket.request.connection._peername.address;
-  // console.log('a user connected', fooBoo);
+  // UNCOMMENT when working :) this just collects cities
+  // var sHeaders = socket.handshake.headers['x-forwarded-for'];
+  // var requestIpLookup = 'http://ipinfo.io/' + sHeaders;
+  // request(requestIpLookup, function(error, res, body) {
+  //   console.log(typeof body);
+  //   var bodyR = JSON.parse(body)
+  //   if (allcities[bodyR.city] === undefined){
+  //     allcities[bodyR.city] = 1;
+  //   } else {
+  //     allcities[bodyR.city]++;
+  //   }
+  //   console.log(JSON.stringify(allcities));
+  // });
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
