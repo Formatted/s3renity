@@ -47,6 +47,10 @@ io.on('connection', function (socket){
 
   // io.emit('cityList', allcities);
 
+  socket.on('mousePozi', function(actual){
+    io.emit('mousePozi2', actual);
+  });
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });

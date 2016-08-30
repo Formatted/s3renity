@@ -1,3 +1,4 @@
+var socket = io();
 var svg = d3.select("svg");
 var width = +svg.attr('width');
 var height = +svg.attr('height');
@@ -27,12 +28,16 @@ var update = function(data, naME) {
                    .attr('r', data.rrr)
                    .attr('cx', function(d) {return d[0]})
                    .attr('cy', function(d) {return d[1]})
+                   .attr('id', function(d) {return 'asd' + d[0] + 'as' + d[1] + naME.slice(1)})
                    .on('mouseover', function() {
-                        d3.select(this)
-                          .transition().delay(rngNumber(0, 150))
-                          .attr("fill", "white")
-                          .transition().delay(rngNumber(15, 3000))
-                          .attr('fill', 'black')
+                    var pupY = this;
+                    socket.emit('mousePozi', pupY.id);
+                    // console.log('in mouseover', this.id);
+                        // d3.select(this)
+                        //   .transition().delay(rngNumber(0, 150))
+                        //   .attr("fill", "white")
+                        //   .transition().delay(rngNumber(15, 3000))
+                        //   .attr('fill', 'black')
          });
 };
 var clear = function(data){
@@ -40,7 +45,14 @@ var clear = function(data){
                    .data(data)
                    .exit().remove();
 };
-
+socket.on('mousePozi2', function(actual){
+  console.log('#' + actual);
+  d3.select('#' + actual + '')
+                          .transition().delay(rngNumber(0, 150))
+                          .attr("fill", "white")
+                          .transition().delay(rngNumber(15, 3000))
+                          .attr('fill', 'black');
+});
 // update(randomPostion(50, 10));
 // clear([]);
 // update(randomPostion(50, 60));

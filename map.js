@@ -47,6 +47,12 @@ var palcesToDraw = [
         ['Huston', 10],
         ['Phoeniex', 10],
         ['Fargo', 10],
+        ['San Antonio', 10],
+        ['Columbus', 10],
+        ['Memphis', 10],
+        ['Milwaukee', 10],
+        ['Omaha', 10],
+        ['Honolulu', 10],
         ['Bismarck', 10]
       ];
 // just adding to the fke data set
