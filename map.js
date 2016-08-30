@@ -32,22 +32,22 @@ var socket = io();
 var palcesToDraw = [
         ['City',   'Population'],
         ['Denver',      10],
-        // ['San Francisco',     10],
-        // ['Kansas',    200],
-        // ['Brandermill',     10],
-        // ['Washington',   10],
-        // ['Nashville', 10],
-        // ['Boston', 10],
-        // ['Seatle', 10],
-        // ['Portlan', 10],
-        // ['Miami',  10],
-        // ['Omaha', 10],
-        // ['Wichita', 10],
-        // ['Dallas', 10],
-        // ['Huston', 10],
-        // ['Phoeniex', 10],
-        // ['Fargo', 10],
-        // ['Bismarck', 10]
+        ['San Francisco',     10],
+        ['Kansas',    200],
+        ['Brandermill',     10],
+        ['Washington',   10],
+        ['Nashville', 10],
+        ['Boston', 10],
+        ['Seatle', 10],
+        ['Portlan', 10],
+        ['Miami',  10],
+        ['Omaha', 10],
+        ['Wichita', 10],
+        ['Dallas', 10],
+        ['Huston', 10],
+        ['Phoeniex', 10],
+        ['Fargo', 10],
+        ['Bismarck', 10]
       ];
 // just adding to the fke data set
 var fooTest = function(asd){
@@ -64,16 +64,16 @@ setInterval(function(){
   fooTest(palcesToDraw);
 }, 1000);
 
-socket.on('cityList', function(msg){
-  // console.log(msg);
-  var holder = [['City',   'Population']];
-  for(var key in msg){
-    holder.push([key, msg[key]]);
-  }
-  palcesToDraw = holder;
-  // console.log(palcesToDraw);
-  console.log('read you loud and clear!');
-});
+// socket.on('cityList', function(msg){
+//   // console.log(msg);
+//   var holder = [['City',   'Population']];
+//   for(var key in msg){
+//     holder.push([key, msg[key]]);
+//   }
+//   palcesToDraw = holder;
+//   // console.log(palcesToDraw);
+//   console.log('read you loud and clear!');
+// });
 
 google.charts.load('current', {'packages': ['geochart']});
      google.charts.setOnLoadCallback(drawMarkersMap);
