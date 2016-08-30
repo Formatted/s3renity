@@ -41,7 +41,11 @@ io.on('connection', function (socket){
   //   }
   //   console.log(JSON.stringify(allcities));
   // });
-  io.emit('cityList', allcities);
+  setInterval(function(){
+    io.emit('cityList', allcities);
+  }, 1000);
+
+  // io.emit('cityList', allcities);
 
   socket.on('disconnect', function(){
     console.log('user disconnected');

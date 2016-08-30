@@ -65,13 +65,14 @@ setInterval(function(){
 }, 1000);
 
 socket.on('cityList', function(msg){
-  console.log(msg);
+  // console.log(msg);
   var holder = [['City',   'Population']];
   for(var key in msg){
     holder.push([key, msg[key]]);
   }
   palcesToDraw = holder;
-  console.log(palcesToDraw);
+  // console.log(palcesToDraw);
+  console.log('read you loud and clear!');
 });
 
 google.charts.load('current', {'packages': ['geochart']});
