@@ -41,6 +41,7 @@ io.on('connection', function (socket){
   //   }
   //   console.log(JSON.stringify(allcities));
   // });
+  io.emit('cityList', allcities);
 
   socket.on('disconnect', function(){
     console.log('user disconnected');
