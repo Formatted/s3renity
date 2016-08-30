@@ -12,11 +12,17 @@ var allcities = {};
 allcities.Denver = 1;
 allcities.Brandermill = 1;
 allcities.Aurora = 1;
+allcities.Boston = 1;
+allcities.Portlan = 1;
 
 app.use(express.static(__dirname + '/'));
 
 app.get('/', function (req, res) {
   res.sendfile('socketio.html');
+});
+
+app.get('/citidata', function (req, res) {
+  res.send(allcities);
 });
 
 var requestIpLookup = 'http://ipinfo.io/'
@@ -45,3 +51,4 @@ server.listen(port, function () {
   console.log('Example app listening on port ' + port + '!');
 });
 
+exports.allcities = allcities;

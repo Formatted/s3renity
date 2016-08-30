@@ -4,10 +4,16 @@ body {
 }
 
 #board {
-  border: solid white 13px;
+  /*border: solid white 13px;*/
   width: 500px;
   height: 312px;
   background-image: url('lb28.gif');
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#chart_div {
   display: block;
   margin-left: auto;
   margin-right: auto;
