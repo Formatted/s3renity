@@ -51,7 +51,7 @@ var fooTest = function(asd){
   for (var x = 1; x < asd.length; x += 2){
     asd[x][1] += 3;
     if(asd[x][1] > 15){
-      asd[x][1] = 1;
+      asd[x][1] = 0;
     }
   }
   // console.log("working", asd[1][1]);

@@ -41,6 +41,11 @@ circle{
   /*fill: white;*/
 }
 
+.floatIng {
+  display: inline-block;
+  overflow: hidden;
+}
+
 /**{
     border: dotted red 1px;
 }*/

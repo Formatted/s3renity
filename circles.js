@@ -20,8 +20,8 @@ var rngNumber = function(min, max){
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-var update = function(data) {
-     d3.select('svg').selectAll('circle')
+var update = function(data, naME) {
+     d3.select(naME).selectAll('circle')
                    .data(data)
                    .enter().append('circle')
                    .attr('r', data.rrr)
@@ -49,4 +49,6 @@ var clear = function(data){
 // clear([]);
 // update(randomPostion(400, 100));
 // clear([]);
-update(randomPostion(500, 100, 10)); // should be sive of svg with, hight, r of circles
+update(randomPostion(500, 100, 10), '#svg2'); // should be sive of svg with, hight, r of circles
+update(randomPostion(300, 800, 10), '#svg1');
+update(randomPostion(300, 800, 10), '#svg3');
